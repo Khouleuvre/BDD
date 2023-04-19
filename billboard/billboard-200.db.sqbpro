@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><sqlb_project><db path="/home/khaleb.dabakuyo@Digital-Grenoble.local/Documents/BDD/billboard/billboard-200.db" foreign_keys="1" case_sensitive_like="0" temp_store="0" wal_autocheckpoint="1000" synchronous="2"/><attached/><window><current_tab id="3"/></window><tab_structure><column_width id="0" width="300"/><column_width id="1" width="0"/><column_width id="2" width="100"/><column_width id="3" width="2166"/><column_width id="4" width="0"/><expanded_item id="0" parent="1"/><expanded_item id="1" parent="1"/><expanded_item id="2" parent="1"/><expanded_item id="3" parent="1"/></tab_structure><tab_browse><current_table name="albums"/><default_encoding codec=""/><browse_table_settings><table schema="main" name="acoustic_features" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table><table schema="main" name="albums" show_row_id="0" encoding="" plot_x_axis="" unlock_view_pk=""><sort/><column_widths/><filter_values/><display_formats/><hidden_columns/><plot_y_axes/></table></browse_table_settings></tab_browse><tab_sql><sql name="SQL 1">SELECT artist
+FROM albums
+where rank = 1 and artist not in ('Soundtrack', 'Various Artists') and date &gt; 2000
+group by artist
+order by count(artist) DESC
+limit 10
+</sql><sql name="SQL 2">Select album, artist, count(album) as cnt from albums
+where rank &lt; 20 and date &gt; 1963 and date &lt;2015 and artist not in ('Soundtrack', 'Various Artists')
+group by album
+order by count(album) DESC
+limit 10</sql><sql name="SQL 3">Select  artist, count(artist) as cnt from albums
+where rank &lt; 50 and artist not in ('Soundtrack', 'Various Artists') and date &gt; 1963 and date &lt;2015
+group by artist
+order by count (artist) DESC
+limit 10</sql><sql name="SQL 4">Select  artist, count(album) as cnt from albums
+where rank &lt; 200 and artist not in ('Soundtrack', 'Various Artists') and date &gt; 1963 and date &lt;2015 
+group by artist
+order by count (album) DESC
+limit 10</sql><current_tab id="3"/></tab_sql></sqlb_project>
